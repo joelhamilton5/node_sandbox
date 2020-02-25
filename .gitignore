@@ -1,16 +1,14 @@
 .DS_Store
 .idea/
-*/node_modules
-*/.env
-
-web/dist
+node_modules
+.env
 
 # local env files
-*/.env.local
-*/.env.*.local
+.env.local
+.env.*.local
 
 # Log files
-*/npm-debug.log*
+npm-debug.log*
 
 # Editor directories and files
 .idea
