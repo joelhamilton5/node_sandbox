@@ -1,0 +1,19 @@
+{
+  "name": "node_sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tests": "cd api && npm run test && cd ../web && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelhamilton5/node_sandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joelhamilton5/node_sandbox/issues"
+  },
+  "homepage": "https://github.com/joelhamilton5/node_sandbox#readme"
+}

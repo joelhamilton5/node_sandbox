@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve --skip-plugins=eslint",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test": "echo 'no tests configured'"
   },
   "dependencies": {
     "axios": "^0.19.2",
