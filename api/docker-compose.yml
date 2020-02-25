@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  example-service:
+  api:
     build: .
     volumes:
       - .:/usr/src/app
