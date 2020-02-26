@@ -3,7 +3,7 @@ name: Web Tests
 on:
   push:
     branches:
-      - mastery
+      - master
 jobs:
   build:
 
