@@ -3,7 +3,7 @@ name: Web Tests
 on:
   push:
     branches:
-      - master
+#      - master
 jobs:
   build:
 
@@ -19,6 +19,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: cd web && npm run build && npm run test
+    - run: cd web && npm i && npm run build && npm run test
       env:
         CI: true
