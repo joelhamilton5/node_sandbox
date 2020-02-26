@@ -1,4 +1,4 @@
-name: API Tests
+name: Test
 
 on:
   push:
@@ -10,8 +10,4 @@ jobs:
 
     steps:
     - name: Test ECS CLI version
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: "echo ecs-cli --v"
-      env:
-        CI: true
+    - run: ecs-cli --v
