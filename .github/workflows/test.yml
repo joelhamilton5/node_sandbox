@@ -9,25 +9,18 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Install ecs-cli
-      - run: |
+        run: |
           mkdir -p "$HOME/tools/ecs-cli"
           wget -N -O "$HOME/tools/ecs-cli/ecs-cli" "https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-${VERSION-latest}"
           chmod +x "$HOME/tools/ecs-cli/ecs-cli"
           echo "::add-path::$HOME/tools/ecs-cli"
 
       - name: Test ecs-cli version
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: ${{ matrix.node-version }}
-      - run: ecs-cli --v
-#      - run: cd web && npm i && npm run build && npm run test
+        run: ecs-cli --v
         env:
           CI: true
