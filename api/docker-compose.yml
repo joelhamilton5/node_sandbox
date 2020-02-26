@@ -6,7 +6,15 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
+    environment:
+      APP_REDIS_HOST: redis
+      APP_REDIS_PORT: 6379
+      NODE_ENV: development
     ports:
       - 8082:8082
       - 9229:9229
-    command: npm start
+#    command: npm start
+  redis:
+    image: "redis:alpine"
+    expose:
+      - 6379

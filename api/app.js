@@ -10,13 +10,13 @@ var app = express();
 app.use(cors({origin: 'http://localhost:8080', credentials: true})); //
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // assign route handlers
 var router = express.Router();
-app.use('/', router.get('/', function(req, res, next) {
+app.use('/', router.get('/', function (req, res, next) {
     res.send('working...');
 }));
 
@@ -24,21 +24,22 @@ app.use('/socket', require('./components/socket/socket'));
 app.use('/users', require('./components/users/users'));
 
 // catch 404 and forward to error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(404);
-    res.send("404")
+    res.send("404");
+    if (err) throw err;
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-    console.log(err);
+app.use(function (err, req, res, next) {
+    if(err) throw err;
 
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(500);
+    // render the error page
+    res.status(500);
     res.send("500")
 });
 
