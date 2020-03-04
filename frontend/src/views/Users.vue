@@ -4,7 +4,7 @@
         <div class="clear-cache">
             <button @click="clearCache()">Clear All Cached</button>
         </div>
-        <user-card v-for="user in users" :user="user" @clearCache="clearCache(user._id)"></user-card>
+        <user-card v-for="(user, key) in users" :key=key :user="user" @clearCache="clearCache(user._id)"></user-card>
     </div>
 </template>
 

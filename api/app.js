@@ -7,7 +7,18 @@ var logger = require('morgan');
 var cors = require('cors'); //
 var app = express();
 
-app.use(cors({origin: 'http://localhost:8080', credentials: true})); //
+// var whitelist = ['http://localhost:8080', 'http://vue-frontend-tester.s3.us-east-2.amazonaws.com/'];
+// app.use(cors({
+//     origin: function (origin, callback) {
+//         if (whitelist.includes(origin)) {
+//             callback(null, true)
+//         } else {
+//             callback(new Error('Blocked by CORS'))
+//         }
+//     },
+//     credentials: true
+// }));
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -32,7 +43,7 @@ app.use(function (err, req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
-    if(err) throw err;
+    if (err) throw err;
 
     // set locals, only providing error in development
     res.locals.message = err.message;

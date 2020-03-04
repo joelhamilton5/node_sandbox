@@ -5,8 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        endpoint: "http://localhost:8082", // EXPRESS
-        // endpoint: "http://localhost:8081", // KOA
+        endpoint: process.env.VUE_APP_API_ENDPOINT
     },
     mutations: {},
     actions: {},

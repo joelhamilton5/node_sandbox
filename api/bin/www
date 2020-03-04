@@ -7,13 +7,13 @@
 var app = require('../app');
 var debug = require('debug')('express-default:server');
 var http = require('http');
-var db = require('../db/db.js');
-db.connectToServer((err, client) => {
-   if(err) console.log(err);
+// var db = require('../db/db.js');
+// db.connectToServer((err, client) => {
+//    if(err) console.log(err);
 
-   console.log('Connected to DB');
+   // console.log('Connected to DB');
    //
-});
+// });
 
 /**
  * Get port from environment and store in Express.
