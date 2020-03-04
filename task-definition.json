@@ -14,7 +14,13 @@
         }
       },
       "entryPoint": null,
-      "portMappings": [],
+      "portMappings": [
+        {
+          "hostPort": 8082,
+          "protocol": "tcp",
+          "containerPort": 8082
+        }
+      ],
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
@@ -30,7 +36,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "284901293696.dkr.ecr.us-east-2.amazonaws.com/node_sandbox",
+      "image": "284901293696.dkr.ecr.us-east-2.amazonaws.com/api:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -47,7 +53,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "node_sandbox"
+      "name": "api-test-latest"
     }
   ],
   "placementConstraints": [],
@@ -57,7 +63,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-2:284901293696:task-definition/api:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-2:284901293696:task-definition/api:11",
   "family": "api",
   "requiresAttributes": [
     {
@@ -115,7 +121,7 @@
   ],
   "networkMode": "awsvpc",
   "cpu": "256",
-  "revision": 1,
+  "revision": 11,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
