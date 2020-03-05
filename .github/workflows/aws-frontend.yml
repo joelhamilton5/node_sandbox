@@ -14,12 +14,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Build App
+    - name: Set up node
       uses: actions/setup-node@v1
       with:
         node-version: 12
       env:
         - CI: true
+
+    - name: Build App
       run: |
         cd frontend &&
         npm i &&
