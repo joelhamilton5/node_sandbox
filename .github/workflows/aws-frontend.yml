@@ -18,7 +18,16 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12
-    - run: cd frontend && npm i && npm run build && npm run test
+      env:
+        SHA: ${{ github.sha }}
+    - run: |
+        cd frontend
+
+        # set public path env to this commit's SHA
+        && printf "\nVUE_APP_PUBLIC_PATH=$SHA" >> .env.production
+        && npm i
+        && npm run build
+        && npm run test
       env:
         CI: true
 
@@ -38,5 +47,7 @@ jobs:
       env:
         SHA: ${{ github.sha }}
       run: |
+        # place built frontend in directory with this commit's SHA
         mv frontend/dist frontend/$SHA
-        aws s3 sync --delete frontend/$SHA s3://vue-frontend-tester/$SHA
+        # push to S3 and update index
+        aws s3 sync --acl public-read frontend/$SHA s3://vue-frontend-tester/$SHA
