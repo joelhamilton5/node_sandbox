@@ -7,7 +7,7 @@ var logger = require('morgan');
 var cors = require('cors'); //
 var app = express();
 
-// var whitelist = ['http://localhost:8080', 'http://vue-frontend-tester.s3.us-east-2.amazonaws.com/'];
+// var whitelist = ['http://localhost:8080', 'https://vue-frontend-tester.s3.us-east-2.amazonaws.com/'];
 // app.use(cors({
 //     origin: function (origin, callback) {
 //         if (whitelist.includes(origin)) {
