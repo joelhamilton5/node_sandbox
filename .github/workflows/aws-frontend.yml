@@ -41,6 +41,6 @@ jobs:
 
     - name: Deploy files to S3
       run: |
-        # push to S3 and update index
-        aws s3 sync --acl public-read --cache-control 'max-age=604800' --delete --exclude dist/index.html dist s3://vue-frontend-tester/
-        aws s3 sync --acl public-read --cache-control 'no-cache' --delete dist/index.html s3://vue-frontend-tester/
+        cd frontend &&
+        aws s3 sync --acl public-read --cache-control 'max-age=604800' --delete --exclude dist/index.html dist s3://vue-frontend-tester/ &&
+        aws s3 sync --acl public-read --cache-control 'no-cache' dist/index.html s3://vue-frontend-tester/
