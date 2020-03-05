@@ -19,7 +19,7 @@ jobs:
       with:
         node-version: 12
       env:
-        - CI: true
+        CI: true
 
     - name: Build App
       run: |
