@@ -21,13 +21,12 @@ jobs:
       env:
         SHA: ${{ github.sha }}
     - run: |
-        cd frontend
-
         # set public path env to this commit's SHA
-        && printf "\nVUE_APP_PUBLIC_PATH=$SHA" >> .env.production
-        && npm i
-        && npm run build
-        && npm run test
+        cd frontend &&
+        printf "\nVUE_APP_PUBLIC_PATH=$SHA" >> .env.production &&
+        npm i &&
+        npm run build &&
+        npm run test
       env:
         CI: true
 
