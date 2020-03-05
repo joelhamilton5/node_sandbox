@@ -35,5 +35,8 @@ jobs:
 
     - name: Deploy frontend files to static S3 server
       id: deploy-frontend
+      env:
+        SHA: ${{ github.sha }}
       run: |
-        aws s3 sync --delete frontend/dist s3://vue-frontend-tester
+        mv frontend/dist frontend/$SHA
+        aws s3 sync --delete frontend/$SHA s3://vue-frontend-tester/$SHA
