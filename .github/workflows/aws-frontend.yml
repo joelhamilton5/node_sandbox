@@ -50,3 +50,6 @@ jobs:
         mv frontend/dist frontend/$SHA
         # push to S3 and update index
         aws s3 sync --acl public-read frontend/$SHA s3://vue-frontend-tester/$SHA
+
+        # testing, push the whole thing
+        aws s3 sync --acl public-read $SHA-frontend/ s3://vue-frontend-tester/$SHA-frontend
