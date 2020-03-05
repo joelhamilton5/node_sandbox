@@ -43,6 +43,7 @@
                 username: '',
                 usernameSubmitted: false,
                 scrollTop: 0,
+                scrollLeft: 0,
                 users: []
             }
         },
@@ -52,7 +53,8 @@
             };
 
             window.addEventListener('scroll', () => {
-                this.scrollTop = window.scrollY
+                this.scrollTop = window.scrollY;
+                this.scrollLeft = window.scrollX;
             })
 
             window.addEventListener('mousemove',
@@ -61,7 +63,7 @@
 
                     this.socket.emit('mousemove', {
                         username: this.username,
-                        x: e.clientX,
+                        x: e.clientX + this.scrollLeft,
                         y: e.clientY + this.scrollTop
                     })
                 }, 40)
@@ -91,12 +93,12 @@
                     this.users.push({
                         name: data.username,
                         color: tinycolor.random().toString(),
-                        x: data.x,
+                        x: data.x - this.scrollLeft,
                         y: data.y - this.scrollTop
                     });
                 } else {
                     let user = this.users.filter(user => user.name === data.username)[0];
-                    user.x = data.x;
+                    user.x = data.x - this.scrollLeft;
                     user.y = data.y - this.scrollTop;
                 }
             });
