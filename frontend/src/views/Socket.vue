@@ -1,6 +1,6 @@
 <template>
     <div class="home" :class="{'no-user': !usernameSubmitted}">
-        <div class="get-user" v-if="">
+        <div class="get-user">
             <h2>What is your name?</h2>
             <input class="name-input" v-model="username" @keypress.enter="usernameSubmitted = true"/>
             <button class="submit-name" @click="usernameSubmitted = true">Begin</button>
